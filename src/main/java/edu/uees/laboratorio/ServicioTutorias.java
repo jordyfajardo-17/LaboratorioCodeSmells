@@ -5,22 +5,23 @@ public class ServicioTutorias {
 
     public void confirmarReserva(Reserva reserva, int horasAnticipacion) {
 
-        if (reserva != null) {
-
-            if (reserva.getEstudiante() != null) {
-
-                if (!reserva.isCancelada()) {
-
-                   if (horasAnticipacion >= HORAS_MINIMAS_CONFIRMACION) {
-
-                        System.out.println("Procesando " + reserva.getId());
-
-                        reserva.confirmar();
-
-                        System.out.println("OK");
-                    }
-                }
-            }
+        if (reserva == null) {
+            return;
         }
+
+        if (reserva.getEstudiante() == null) {
+            return;
+        }
+
+        if (reserva.isCancelada()) {
+            return;
+        }
+
+        if (horasAnticipacion < HORAS_MINIMAS_CONFIRMACION) {
+            return;
+        }
+
+        reserva.confirmar();
+        System.out.println("Reserva confirmada");
     }
 }
