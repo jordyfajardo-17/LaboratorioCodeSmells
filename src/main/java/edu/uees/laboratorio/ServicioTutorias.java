@@ -1,6 +1,7 @@
 package edu.uees.laboratorio;
 
 public class ServicioTutorias {
+    private static final int HORAS_MINIMAS_CONFIRMACION = 2;
 
     public void confirmarReserva(Reserva reserva, int horasAnticipacion) {
 
@@ -10,7 +11,7 @@ public class ServicioTutorias {
 
                 if (!reserva.isCancelada()) {
 
-                    if (horasAnticipacion >= 2) {
+                   if (horasAnticipacion >= HORAS_MINIMAS_CONFIRMACION) {
 
                         System.out.println("Procesando " + reserva.getId());
 
